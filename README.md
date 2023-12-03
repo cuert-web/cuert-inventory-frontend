@@ -1,0 +1,1 @@
+# cuert-inventory-frontend
