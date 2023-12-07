@@ -12,6 +12,7 @@ const GlobalStyles = () => {
       margin: 0;
     }
     body {
+      font-family: "Inter", sans-serif;
       min-height: 100vh;
       line-height: 1.5;
       font-size: 1.6rem;
