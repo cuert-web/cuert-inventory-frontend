@@ -1,7 +1,7 @@
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
- } 
+ }
 .formscreen{
    animation: fadeIn 1s;
 }
@@ -26,8 +26,8 @@ body{
     background-size:100% ;
     display: flex;
     justify-content: center;
-    align-items: center;    
-    
+    align-items: center;
+
 }
 
 .big-box1
@@ -45,7 +45,7 @@ body{
     color: rgba(255, 255, 255, 0.993);
 }
 
-  
+
 .big-box2
 {
 
@@ -76,7 +76,7 @@ margin-right: 10px;
     border:2px solid rgba(131, 119, 119, 0.452);
 }
 @media screen and (max-width: 480px) {
-   
+
     .big-box1{
         margin-top: 10px;
         position: relative;
@@ -96,7 +96,7 @@ margin-right: 10px;
         border-radius: 10px;
         height:20px;
     }
-   
+
     label{
         font-size: 12px;
     }
@@ -121,7 +121,7 @@ margin-right: 10px;
     img{
         width: 12px;
     }
-} 
+}
 @media screen and (max-width: 718px)
 {
     .big-box2{
@@ -139,9 +139,9 @@ margin-right: 10px;
     img{
         width: 12px;
     }
-} 
+}
 @media screen and (max-width: 700px) {
-   
+
     .big-box1{
         margin-top: 10px;
         position: relative;
@@ -161,7 +161,7 @@ margin-right: 10px;
         border-radius: 10px;
         height:20px;
     }
-   
+
     label{
         font-size: 13px;
     }
@@ -170,7 +170,7 @@ margin-right: 10px;
     }
 }
 @media screen and (max-width: 407px) {
-   
+
     .big-box1{
         margin-top: 5px;
         position: relative;
@@ -190,8 +190,8 @@ margin-right: 10px;
         border-radius: 10px;
         height:20px;
     }
- 
-   
+
+
     label{
         font-size: 9px;
     }

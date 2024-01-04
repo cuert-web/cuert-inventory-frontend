@@ -1,10 +1,14 @@
-import { StyledContainer, StyledHeader } from "./Login.styled";
+import LoginForm from "../../components/LoginForm/LoginForm";
+import AuthLayout from "../../layouts/AuthLayout/AuthLayout";
+import { BigBox1} from "./Login.styled";
 
 const Login = () => {
   return (
-    <StyledContainer>
-      <StyledHeader>Login</StyledHeader>
-    </StyledContainer>
+    <AuthLayout>
+      <BigBox1>
+        <LoginForm />
+      </BigBox1>
+    </AuthLayout>
   );
 };
 
