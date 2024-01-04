@@ -2,6 +2,7 @@ import { styled } from "@mui/material";
 
 export const StyledLoginForm = styled("form")`
   max-width: 100%;
+  max-height: 100%;
 
   & .mb-3 {
     margin-bottom: 1rem;
@@ -51,4 +52,28 @@ export const LoginBtn = styled("button")`
   outline: none;
   border: none;
   margin-bottom: 1rem;
+
+  &:hover {
+    background-color: #198754ee;
+  }
+`;
+
+export const CreateOrLogin = styled("div")`
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  & a {
+    /* set color to blue link color */
+    color: #0d6efd;
+
+    /* set hover and visited colors */
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: violet;
+    }
+  }
 `;
