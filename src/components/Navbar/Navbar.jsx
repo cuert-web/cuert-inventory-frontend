@@ -4,9 +4,18 @@ import { StyledMenu, StyledNav } from "./Navbar.styled";
 import Logo from "@/components/Logo/Logo";
 import { Logout, Menu } from "@mui/icons-material";
 import Sidebar from "../Sidebar/Sidebar";
+import { logout } from "@/features/auth";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    logout();
+    navigate("/login");
+  };
 
   return (
     <>
@@ -31,7 +40,7 @@ const Navbar = () => {
             </Box>
             <Logo />
           </StyledMenu>
-          <IconButton>
+          <IconButton onClick={handleLogout}>
             <Logout
               sx={{
                 color: "#fff",

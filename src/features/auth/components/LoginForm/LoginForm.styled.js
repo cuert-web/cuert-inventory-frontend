@@ -20,7 +20,7 @@ export const StyledLoginForm = styled("form")`
   & input {
     width: 350px;
     border-radius: 20px;
-    height: 40px;
+    height: 30px;
     color: aliceblue;
     background: transparent;
     outline: none;
@@ -28,6 +28,16 @@ export const StyledLoginForm = styled("form")`
     padding-left: 1rem;
     margin-top: 5px;
     max-width: 100%;
+    &::placeholder {
+      color: white;
+      opacity: 0.7;
+    }
+  }
+
+  &.login-form {
+    & input {
+      height: 40px;
+    }
   }
 
   @keyframes fadeIn {

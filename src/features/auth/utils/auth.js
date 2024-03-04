@@ -44,3 +44,8 @@ export const tokenCheckLoaderProtected = () => {
   }
   return null;
 };
+
+// set token function
+export const setToken = (token) => {
+  localStorage.setItem("token", token);
+}

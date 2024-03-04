@@ -28,20 +28,13 @@ const LoginForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: ({ identifier, password }) => {
-      login(
-        { identifier, password },
-        {
-          onSettled: () => {
-            formik.resetForm();
-          },
-        }
-      );
+      login({ identifier, password });
     },
   });
   const { login, isLoggingIn } = useLogin();
 
   return (
-    <StyledLoginForm onSubmit={formik.handleSubmit}>
+    <StyledLoginForm onSubmit={formik.handleSubmit} className="login-form">
       <div className="mb-3">
         <LabelContainer>
           <Person />

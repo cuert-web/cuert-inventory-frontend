@@ -6,6 +6,7 @@ import GlobalStyles from "@/styles/GlobalStyles";
 import { Login, Signup } from "@/features/auth";
 import AppLayout from "@/layouts/AppLayout";
 import { Dashboard } from "./features/dashboard";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,7 +24,13 @@ function App() {
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
-            <Route element={<AppLayout />}>
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
             </Route>
