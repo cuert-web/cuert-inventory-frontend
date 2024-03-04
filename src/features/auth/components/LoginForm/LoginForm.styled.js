@@ -13,7 +13,7 @@ export const StyledLoginForm = styled("form")`
   }
 
   & .mb-3 label {
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: 10px;
   }
 
@@ -56,6 +56,11 @@ export const LoginBtn = styled("button")`
   &:hover {
     background-color: #198754ee;
   }
+
+  /* when disabled make a its background muted green */
+  &:disabled {
+    background-color: #198754aa;
+  }
 `;
 
 export const CreateOrLogin = styled("div")`
@@ -75,5 +80,18 @@ export const CreateOrLogin = styled("div")`
     &:visited {
       color: violet;
     }
+  }
+`;
+
+export const LabelContainer = styled("div")`
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledInput = styled("input")`
+  /* make placeholder text white */
+  &::placeholder {
+    color: white;
+    opacity: 0.7;
   }
 `;

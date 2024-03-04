@@ -1,31 +1,95 @@
-import email from "@/features/auth/assets/email.png";
-import pass from "@/features/auth/assets/password.png";
 import { Link } from "react-router-dom";
-import { CreateOrLogin, LoginBtn, StyledLoginForm } from "./LoginForm.styled";
+import { useLogin } from "@/features/auth/hooks/useLogin";
+import { Person, Lock } from "@mui/icons-material";
+import { CircularProgress } from "@mui/material";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+
+import {
+  CreateOrLogin,
+  LabelContainer,
+  LoginBtn,
+  StyledInput,
+  StyledLoginForm,
+} from "./LoginForm.styled";
+
+const validationSchema = Yup.object({
+  identifier: Yup.string().required("Required"),
+  password: Yup.string()
+    .min(8, "at least 8 characters long")
+    .required("Required"),
+});
 
 const LoginForm = () => {
+  const formik = useFormik({
+    initialValues: {
+      identifier: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: ({ identifier, password }) => {
+      login(
+        { identifier, password },
+        {
+          onSettled: () => {
+            formik.resetForm();
+          },
+        }
+      );
+    },
+  });
+  const { login, isLoggingIn } = useLogin();
+
   return (
-    <StyledLoginForm action="">
+    <StyledLoginForm onSubmit={formik.handleSubmit}>
       <div className="mb-3">
-        <img src={email} alt="" />
-        <label htmlFor="email">
-          <strong> Email</strong>
-        </label>
+        <LabelContainer>
+          <Person />
+          <label htmlFor="identifier">
+            <strong>Identifier</strong>
+          </label>
+        </LabelContainer>
         <div className="box">
-          <input type="email" />
+          <StyledInput
+            required
+            onChange={formik.handleChange}
+            value={formik.values.identifier}
+            placeholder="Enter Email or Username or Phone Number"
+            name="identifier"
+          />
         </div>
       </div>
       <div className="mb-3">
-        <img src={pass} alt="" />
-        <label htmlFor="password">
-          <strong>Password</strong>
-        </label>
+        <LabelContainer>
+          <Lock />
+          <label htmlFor="password">
+            <strong>Password</strong>
+          </label>
+        </LabelContainer>
         <div className="box">
-          <input type="password" name="Enter Password" />
+          <StyledInput
+            required
+            type="password"
+            name="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            placeholder="Enter Password"
+          />
         </div>
       </div>
 
-      <LoginBtn>Log in</LoginBtn>
+      <LoginBtn disabled={isLoggingIn} type="submit">
+        {isLoggingIn ? (
+          <CircularProgress
+            sx={{
+              color: "white",
+            }}
+            size={20}
+          />
+        ) : (
+          "Log in"
+        )}
+      </LoginBtn>
       <CreateOrLogin>
         <p>Don&apos;t you have an account? </p>
         <Link
