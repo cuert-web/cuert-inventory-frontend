@@ -5,8 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import GlobalStyles from "@/styles/GlobalStyles";
 import { Login, Signup } from "@/features/auth";
 import AppLayout from "@/layouts/AppLayout";
-import { Dashboard } from "./features/dashboard";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import { Dashboard } from "@/features/dashboard";
+import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
