@@ -1,8 +1,14 @@
+import SuppliersTable from "@/features/suppliers/components/SuppliersTable/SuppliersTable";
+import ViewSuppliersHeader from "@/features/suppliers/components/ViewSuppliersHeader/ViewSuppliersHeader";
+import { ViewSuppliersContainer } from "./ViewSuppliers.styled";
 
 const ViewSuppliers = () => {
   return (
-    <div>ViewSuppliers</div>
-  )
-}
+    <ViewSuppliersContainer>
+      <ViewSuppliersHeader />
+      <SuppliersTable />
+    </ViewSuppliersContainer>
+  );
+};
 
-export default ViewSuppliers
+export default ViewSuppliers;

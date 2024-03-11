@@ -8,7 +8,9 @@ const StyledAppLayout = styled("div")`
   flex-direction: column;
   height: 100vh;
   max-height: 100vh;
+  overflow: hidden;
 `;
+
 
 const AppLayout = () => {
   return (
@@ -18,7 +20,10 @@ const AppLayout = () => {
         <Box component={Grid} display={{ xs: "none", md: "flex" }} item md={2}>
           <Sidebar />
         </Box>
-        <Grid item xs={12} md={10} padding="1rem 1rem">
+        <Grid item xs={12} md={10} padding={2} sx={{
+          height: "calc(100vh - 4rem)",
+          overflowY: "auto",
+        }}>
           <Outlet />
         </Grid>
       </Grid>

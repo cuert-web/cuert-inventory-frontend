@@ -6,6 +6,8 @@ export const StyledNav = styled("nav")`
   color: #fff;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid #ccc;
+  align-items: center;
+  height: 4rem;
 
 `;
 
