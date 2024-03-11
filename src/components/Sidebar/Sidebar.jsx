@@ -26,7 +26,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 const Sidebar = () => {
-  const [openSuppliers, setOpenSuppliers] = useState(true);
+  const [openSuppliers, setOpenSuppliers] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = () => {

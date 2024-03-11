@@ -7,6 +7,7 @@ import { Login, Signup } from "@/features/auth";
 import AppLayout from "@/layouts/AppLayout";
 import { Dashboard } from "@/features/dashboard";
 import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
+import { AddSupplier, ViewSuppliers } from "@/features/suppliers";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,6 +34,10 @@ function App() {
             >
               <Route index element={<Navigate replace to="dashboard" />} />
               <Route path="dashboard" element={<Dashboard />} />
+              <Route path="suppliers">
+                <Route index element={<ViewSuppliers />} />
+                <Route path="add-supplier" element={<AddSupplier />} />
+              </Route>
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

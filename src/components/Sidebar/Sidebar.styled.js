@@ -56,6 +56,7 @@ export const StyledListItem = styled("div")`
   padding: 0.1rem 0.5rem;
   border-radius: 4px;
   justify-content: space-between;
+  cursor: pointer;
 
   &.active,
   &:hover {
@@ -69,6 +70,7 @@ export const StyledListItem = styled("div")`
 
 export const IconDiv = styled("div")`
   display: flex;
+  gap: 8px;
 `;
 
 export const StyledListItemButton = styled(ListItemButton)`
