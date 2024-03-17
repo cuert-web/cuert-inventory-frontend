@@ -1,12 +1,12 @@
 import { HeaderContainer } from "./ViewSuppliersHeader.styled";
-import SortBy from "@/components/SortBy/SortBy";
+import SearchBy from "@/components/SearchBy/SearchBy";
 
 const ViewSuppliersHeader = () => {
   return (
     <HeaderContainer>
       <h1>Suppliers</h1>
       <div>
-        <SortBy options={options} />
+        <SearchBy options={options} />
       </div>
     </HeaderContainer>
   );

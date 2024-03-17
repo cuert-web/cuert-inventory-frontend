@@ -23,7 +23,7 @@ const Select = ({ options, value, ...props }) => {
           },
         }}
       >
-        sort-by
+        search-by
       </InputLabel>
       <MUISelect
         labelId="demo-simple-select-label"

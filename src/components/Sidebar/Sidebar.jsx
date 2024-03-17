@@ -27,10 +27,15 @@ import { useNavigate } from "react-router";
 
 const Sidebar = () => {
   const [openSuppliers, setOpenSuppliers] = useState(false);
+  const [openProducts, setOpenProducts] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = () => {
     setOpenSuppliers(!openSuppliers);
+  };
+
+  const handleClickProduct = () => {
+    setOpenProducts(!openProducts);
   };
 
   return (
@@ -53,11 +58,30 @@ const Sidebar = () => {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink to="/products">
-            <Inventory2RoundedIcon />
-            <p>Products</p>
-          </StyledNavLink>
+          <StyledListItem onClick={handleClickProduct}>
+            <IconDiv>
+              <Inventory2RoundedIcon />
+              <p>Products</p>
+            </IconDiv>
+            {openProducts ? <ExpandLess /> : <ExpandMore />}
+          </StyledListItem>
         </li>
+        <Collapse in={openProducts} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <StyledListItemButton
+              sx={{ p: 0.4, pl: 4 }}
+              onClick={() => navigate("/products")}
+            >
+              <ListItemText primary="View Products" />
+            </StyledListItemButton>
+            <StyledListItemButton
+              sx={{ p: 0.4, pl: 4 }}
+              onClick={() => navigate("/products/add-product")}
+            >
+              <ListItemText primary="Add Product" />
+            </StyledListItemButton>
+          </List>
+        </Collapse>
         <li>
           <StyledListItem onClick={handleClick}>
             <IconDiv>
@@ -69,10 +93,16 @@ const Sidebar = () => {
         </li>
         <Collapse in={openSuppliers} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <StyledListItemButton sx={{p:0.4, pl: 4 }} onClick={()=>navigate("/suppliers")}>
+            <StyledListItemButton
+              sx={{ p: 0.4, pl: 4 }}
+              onClick={() => navigate("/suppliers")}
+            >
               <ListItemText primary="View Suppliers" />
             </StyledListItemButton>
-            <StyledListItemButton sx={{p:0.4,  pl: 4 }} onClick={()=>navigate("/suppliers/add-supplier")}>
+            <StyledListItemButton
+              sx={{ p: 0.4, pl: 4 }}
+              onClick={() => navigate("/suppliers/add-supplier")}
+            >
               <ListItemText primary="Add Supplier" />
             </StyledListItemButton>
           </List>
