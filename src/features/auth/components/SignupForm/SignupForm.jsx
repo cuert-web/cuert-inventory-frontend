@@ -17,6 +17,7 @@ import {
   StyledLoginForm,
 } from "../LoginForm/LoginForm.styled";
 import { useSignup } from "@/features/auth/hooks/useSignup";
+import InputField from "../InputField/InputField";
 
 const userSchema = Yup.object({
   fullName: Yup.string().required("Required"),
@@ -61,16 +62,15 @@ const SignupForm = () => {
             <strong>Full Name</strong>
           </label>
         </LabelContainer>
-        <div className="box">
-          <input
-            type="text"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.fullName}
-            placeholder="Enter Full Name"
-            name="fullName"
-          />
-        </div>
+        <InputField
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.fullName}
+          placeholder="Enter Full Name"
+          name="fullName"
+          isError={formik.touched.fullName && Boolean(formik.errors.fullName)}
+          errorMessage={formik.touched.fullName && formik.errors.fullName}
+        />
       </div>
       <div className="mb-3">
         <LabelContainer>
@@ -79,16 +79,15 @@ const SignupForm = () => {
             <strong>Username</strong>
           </label>
         </LabelContainer>
-        <div className="box">
-          <input
-            type="text"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.username}
-            placeholder="Enter Username"
-            name="username"
-          />
-        </div>
+        <InputField
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.username}
+          placeholder="Enter Username"
+          name="username"
+          isError={formik.touched.username && Boolean(formik.errors.username)}
+          errorMessage={formik.touched.username && formik.errors.username}
+        />
       </div>
       <div className="mb-3">
         <LabelContainer>
@@ -97,16 +96,17 @@ const SignupForm = () => {
             <strong> Phone Number </strong>
           </label>
         </LabelContainer>
-        <div className="box">
-          <input
-            type="text"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.phoneNumber}
-            placeholder="Enter Phone Number"
-            name="phoneNumber"
-          />
-        </div>
+        <InputField
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.phoneNumber}
+          placeholder="Enter Phone Number"
+          name="phoneNumber"
+          isError={
+            formik.touched.phoneNumber && Boolean(formik.errors.phoneNumber)
+          }
+          errorMessage={formik.touched.phoneNumber && formik.errors.phoneNumber}
+        />
       </div>
 
       <div className="mb-3">
@@ -116,16 +116,16 @@ const SignupForm = () => {
             <strong> Email</strong>
           </label>
         </LabelContainer>
-        <div className="box">
-          <input
-            type="email"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.email}
-            placeholder="Enter Email"
-            name="email"
-          />
-        </div>
+
+        <InputField
+          type="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          placeholder="Enter Email"
+          name="email"
+          isError={formik.touched.email && Boolean(formik.errors.email)}
+          errorMessage={formik.touched.email && formik.errors.email}
+        />
       </div>
       <div className="mb-3">
         <LabelContainer>
@@ -134,16 +134,15 @@ const SignupForm = () => {
             <strong>Password</strong>
           </label>
         </LabelContainer>
-        <div className="box">
-          <input
-            type="password"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.password}
-            placeholder="Enter Password"
-            name="password"
-          />
-        </div>
+        <InputField
+          type="password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          placeholder="Enter Password"
+          name="password"
+          isError={formik.touched.password && Boolean(formik.errors.password)}
+          errorMessage={formik.touched.password && formik.errors.password}
+        />
       </div>
       <div className="mb-3">
         <LabelContainer>
@@ -152,7 +151,22 @@ const SignupForm = () => {
             <strong>Confirm Password</strong>
           </label>
         </LabelContainer>
-        <div className="box">
+        <InputField
+          type="password"
+          onChange={formik.handleChange}
+          value={formik.values.confirmPassword}
+          placeholder="Confirm Password"
+          name="confirmPassword"
+          isError={
+            formik.touched.confirmPassword &&
+            Boolean(formik.errors.confirmPassword)
+          }
+          errorMessage={
+            formik.touched.confirmPassword && formik.errors.confirmPassword
+          }
+        />
+
+        {/* <div>
           <input
             type="password"
             required
@@ -161,7 +175,7 @@ const SignupForm = () => {
             placeholder="Confirm Password"
             name="confirmPassword"
           />
-        </div>
+        </div> */}
       </div>
       <LoginBtn type="submit" disabled={isSigningUp}>
         {isSigningUp ? (

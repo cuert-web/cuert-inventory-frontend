@@ -3,9 +3,10 @@ import { styled } from "@mui/material";
 export const StyledLoginForm = styled("form")`
   max-width: 100%;
   max-height: 100%;
+  overflow-y: auto;
 
   & .mb-3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   & .mb-3 img {
@@ -15,23 +16,6 @@ export const StyledLoginForm = styled("form")`
   & .mb-3 label {
     margin-left: 5px;
     margin-right: 10px;
-  }
-
-  & input {
-    width: 350px;
-    border-radius: 20px;
-    height: 30px;
-    color: aliceblue;
-    background: transparent;
-    outline: none;
-    border: 2px solid rgba(131, 119, 119, 0.452);
-    padding-left: 1rem;
-    margin-top: 5px;
-    max-width: 100%;
-    &::placeholder {
-      color: white;
-      opacity: 0.7;
-    }
   }
 
   &.login-form {
@@ -67,7 +51,6 @@ export const LoginBtn = styled("button")`
     background-color: #198754ee;
   }
 
-  /* when disabled make a its background muted green */
   &:disabled {
     background-color: #198754aa;
   }
@@ -79,10 +62,8 @@ export const CreateOrLogin = styled("div")`
   gap: 10px;
 
   & a {
-    /* set color to blue link color */
     color: #0d6efd;
 
-    /* set hover and visited colors */
     &:hover {
       text-decoration: underline;
     }

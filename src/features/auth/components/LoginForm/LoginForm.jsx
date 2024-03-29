@@ -9,9 +9,9 @@ import {
   CreateOrLogin,
   LabelContainer,
   LoginBtn,
-  StyledInput,
   StyledLoginForm,
 } from "./LoginForm.styled";
+import InputField from "../InputField/InputField";
 
 const validationSchema = Yup.object({
   identifier: Yup.string().required("Required"),
@@ -42,15 +42,17 @@ const LoginForm = () => {
             <strong>Identifier</strong>
           </label>
         </LabelContainer>
-        <div className="box">
-          <StyledInput
-            required
-            onChange={formik.handleChange}
-            value={formik.values.identifier}
-            placeholder="Enter Email or Username or Phone Number"
-            name="identifier"
-          />
-        </div>
+        <InputField
+          onChange={formik.handleChange}
+          value={formik.values.identifier}
+          placeholder="Enter Email or Username or Phone Number"
+          name="identifier"
+          isError={
+            formik.touched.identifier && Boolean(formik.errors.identifier)
+          }
+          errorMessage={formik.touched.identifier && formik.errors.identifier}
+        />
+
       </div>
       <div className="mb-3">
         <LabelContainer>
@@ -59,7 +61,17 @@ const LoginForm = () => {
             <strong>Password</strong>
           </label>
         </LabelContainer>
-        <div className="box">
+        <InputField
+          type="password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          placeholder="Enter Password"
+          name="password"
+          isError={formik.touched.password && Boolean(formik.errors.password)}
+          errorMessage={formik.touched.password && formik.errors.password}
+        />
+
+        {/* <div className="box">
           <StyledInput
             required
             type="password"
@@ -68,7 +80,7 @@ const LoginForm = () => {
             value={formik.values.password}
             placeholder="Enter Password"
           />
-        </div>
+        </div> */}
       </div>
 
       <LoginBtn disabled={isLoggingIn} type="submit">
