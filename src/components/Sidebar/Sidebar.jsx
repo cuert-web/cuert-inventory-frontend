@@ -24,11 +24,14 @@ import PersonRoundedIcon from "@mui/icons-material/PersonRounded";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useAuth } from "@/hooks/useAuth";
 
 const Sidebar = () => {
   const [openSuppliers, setOpenSuppliers] = useState(false);
   const [openProducts, setOpenProducts] = useState(false);
   const navigate = useNavigate();
+
+  const {user, isLoading} = useAuth();
 
   const handleClick = () => {
     setOpenSuppliers(!openSuppliers);
@@ -41,8 +44,8 @@ const Sidebar = () => {
   return (
     <StyledAside>
       <AvatarContainer>
-        <Avatar alt="avatar" src={avatar} sx={{ width: 80, height: 80 }} />
-        <p>username</p>
+        <Avatar alt="avatar" src={avatar} sx={{ width: 80, height: 80, marginBottom: 1 }} />
+        <p>{!isLoading && user?.data?.full_name || "username"}</p>
       </AvatarContainer>
       <StyledList>
         <li>
