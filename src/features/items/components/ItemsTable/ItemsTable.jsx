@@ -6,6 +6,8 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import {
+  Box,
+  Button,
   Chip,
   IconButton,
   ListItemIcon,
@@ -143,13 +145,14 @@ const ItemsTable = () => {
                     }}
                   >
                     <MenuItem onClick={handleClose}>request item</MenuItem>
-                    <MenuItem onClick={handleClose}
-                    sx={{
+                    <MenuItem
+                      onClick={handleClose}
+                      sx={{
                         color: (theme) => theme.palette.warning.main,
                       }}
                     >
                       <ListItemIcon>
-                        <Edit fontSize="small" color="warning"/>
+                        <Edit fontSize="small" color="warning" />
                       </ListItemIcon>
                       edit
                     </MenuItem>
@@ -170,16 +173,37 @@ const ItemsTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
-      <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+      <Box
         component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
-      />
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          width: "100%",
+          padding: "1rem",
+        }}
+      >
+        <TablePagination
+          rowsPerPageOptions={[10, 25, 100]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+          sx={{
+            ".MuiToolbar-root": {
+              paddingLeft: "0",
+            },
+          }}
+        />
+
+        <Button variant="outlined" color="success" size="small"  sx={{
+          height: "40px",
+        }}>
+          Add Item
+        </Button>
+      </Box>
     </Paper>
   );
 };
