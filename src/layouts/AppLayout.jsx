@@ -23,6 +23,10 @@ const AppLayout = () => {
             display={{ xs: "none", md: "flex" }}
             item
             md={2}
+            sx={{
+              height: "calc(100vh - 4rem)",
+              overflowY: "auto",
+            }}
           >
             <Sidebar />
           </Box>

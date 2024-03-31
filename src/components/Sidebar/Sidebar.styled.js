@@ -11,6 +11,8 @@ export const StyledAside = styled("aside")`
   height: 100%;
   border-right: 1px solid #ccc;
   gap: 1rem;
+  max-height: 100%;
+  overflow-y: auto;
 
   @media (max-width: 900px) {
     padding: 1rem 2rem;

@@ -8,9 +8,10 @@ import AppLayout from "@/layouts/AppLayout";
 import { Dashboard } from "@/features/dashboard";
 import ProtectedRoute from "@/components/ProtectedRoute/ProtectedRoute";
 import { AddSupplier, ViewSuppliers } from "@/features/suppliers";
-import AddProduct from "./features/products/pages/AddProduct/AddProduct";
-import ViewProducts from "./features/products/pages/ViewProducts/ViewProducts";
-import EditProduct from "./features/products/pages/EditProduct/EditProduct";
+import AddProduct from "@/features/products/pages/AddProduct/AddProduct";
+import ViewProducts from "@/features/products/pages/ViewProducts/ViewProducts";
+import EditProduct from "@/features/products/pages/EditProduct/EditProduct";
+import { MyRequests, ViewItems } from "@/features/items";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,6 +46,10 @@ function App() {
                 <Route index element={<ViewProducts />} />
                 <Route path="add-product" element={<AddProduct />} />
                 <Route path="edit-product/:id" element={<EditProduct />} />
+              </Route>
+              <Route path="items">
+                <Route index element={<ViewItems />} />
+                <Route path="my-requests" element={<MyRequests />} />
               </Route>
             </Route>
             <Route path="/login" element={<Login />} />
